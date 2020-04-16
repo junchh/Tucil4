@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    background-color: rgb(223, 223, 255);
+    font-family: 'Open Sans', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7em;
+}
+
+.container {
+    margin: auto;
+    max-width: 900px;
+    padding: 20px;
+    overflow: auto;
+}
+
+#title {
+    margin: 10px;
+    color: #2f1242;
+    text-align: center;
+}
+
+#article {
+    margin-top: 13px;
+    padding: 0;
+}
+
+.le {
+    font-size: 14px;
+    margin: 10px;
+    float: left;
+    clear: left;
+}
+
+.cho {
+    margin-top: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+}

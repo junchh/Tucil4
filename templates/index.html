@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="title">Information Extractor</h1>
+        <div class="ge">
+            <h2 class="le">Pilih artikel: </h2>
+            <input type="file" id="article">
+        </div>
+        <div class="ge">
+            <h2 class="le">Pilih artikel: </h2>
+            <input class="cho" id="choice1" type="radio" value="1" name="rad">
+            <label for="choice1">Boyer-Moore</label> 
+            <input class="cho" id="choice2" type="radio" value="2" name="rad">
+            <label for="choice2">KMP</label> 
+            <input class="cho" id="choice3" type="radio" value="3" name="rad">
+            <label for="choice3">Regex</label> 
+        </div>
+        <button id="enter" onClick="send()">Extract!</button>
+
+        <div id="content">
+
+        </div>
+    </div>
+</body>
+<script>
+    function send(){
+        var file = document.getElementById('article').files[0];
+        var content = new FileReader();
+        content.onload = function (e){
+            var text = e.target.result;
+
+            /* AJAX send request TODO */
+
+
+        }
+        content.readAsText(file);
+    }
+</script>
+</html>
