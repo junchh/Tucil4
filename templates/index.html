@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Information Extractor</title>
 
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="static/css/main.css">
 </head>
 <body>
     <div class="container">
@@ -13,6 +13,10 @@
         <div class="ge">
             <h2 class="le">Pilih artikel: </h2>
             <input type="file" id="article">
+        </div>
+        <div class="ge">
+            <h2 class="le">Keyword: </h2>
+            <input class="cho" id="keyword" type="text">
         </div>
         <div class="ge">
             <h2 class="le">Pilih artikel: </h2>
@@ -31,14 +35,27 @@
     </div>
 </body>
 <script>
+
     function send(){
+        var xHttp = new XMLHttpRequest();
         var file = document.getElementById('article').files[0];
+        var keyword = document.getElementById('keyword').value;
+        var choice = document.querySelector('input[name="rad"]:checked').value;
         var content = new FileReader();
         content.onload = function (e){
             var text = e.target.result;
+            text = text.replace(/\//g, ";")
+            text = text.replace(/ /g,"$")
 
-            /* AJAX send request TODO */
-
+            xHttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("content").innerHTML = xHttp.responseText;
+                }
+            };
+            
+            xHttp.open("GET", "getResult/" + choice + '/' + keyword + '/' + text);
+            xHttp.send();
+            
 
         }
         content.readAsText(file);
